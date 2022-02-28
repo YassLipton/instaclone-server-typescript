@@ -1,0 +1,104 @@
+paths:
+  /post/comment/add:
+    post:
+      tags:
+        - Comment
+      summary: Add a new comment to the post
+      produces:
+      - application/json
+      parameters:
+      - in: body 
+        name: body
+        description: It adds a new comment to the post
+        required: true
+        schema:
+          $ref: '#/definitions/Comment'
+      responses:
+        200:
+          description: An object with comment details
+          schema:
+            $ref: '#/definitions/Comment'
+  /post/comment/{commentId}:
+    get:
+      tags:
+        - Comment
+      summary: Find comment by ID
+      produces:
+      - application/json
+      parameters:
+      - name: commentId
+        in: path
+        required: true
+        description: The ID of the comment to retrieve
+        type: string
+      responses:
+        200:
+          description: An object with comment details
+          schema:
+            $ref: '#/definitions/Comment'
+  /post/comment/update/{commentId}:
+    put:
+      tags:
+        - Comment
+      summary: Update a comment
+      produces:
+      - application/json
+      parameters:
+      - name: commentId
+        in: path
+        required: true
+        description: The ID of the comment to update
+        type: string
+      - in: body 
+        name: body
+        description: It updates a comment
+        required: true
+        schema:
+          $ref: '#/definitions/Comment'
+      responses:
+        200:
+          description: An object with comment details
+          schema:
+            $ref: '#/definitions/Comment'
+  /post/comment/remove/{commentId}:
+    delete:
+      tags:
+        - Comment
+      summary: Remove a comment
+      produces:
+      - application/json
+      parameters:
+      - name: commentId
+        in: path
+        required: true
+        description: The ID of the comment to remove
+        type: string
+      responses:
+        200:
+          description: An object with comment details
+          schema:
+            $ref: '#/definitions/Comment'
+definitions:
+  Comment:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Text of the comment
+      usersWhoLiked:
+        type: array
+        items:
+          type: string
+          description: Array of IDs of the users who liked the comment
+      user:
+        type: string
+        description: ID of user who write the comment
+      post:
+        type: string
+        description: ID of the comment's post
+    required:
+      - text
+      - user
+      - post
+tags:
+  - name: Comment

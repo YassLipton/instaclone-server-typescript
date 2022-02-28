@@ -1,0 +1,134 @@
+paths:
+  /post/create:
+    post:
+      tags:
+        - Post
+      summary: Create a new post
+      produces:
+      - application/json
+      parameters:
+      - in: body 
+        name: body
+        description: It adds a new post to the post
+        required: true
+        schema:
+          $ref: '#/definitions/Post'
+      responses:
+        200:
+          description: An object with post details
+          schema:
+            $ref: '#/definitions/Post'
+  /post/{postId}:
+    get:
+      tags:
+        - Post
+      summary: Find post by ID
+      produces:
+      - application/json
+      parameters:
+      - name: postId
+        in: path
+        required: true
+        description: The ID of the post to retrieve
+        type: string
+      responses:
+        200:
+          description: An object with post details
+          schema:
+            $ref: '#/definitions/Post'
+  /post/update/{postId}:
+    put:
+      tags:
+        - Post
+      summary: Update a post
+      produces:
+      - application/json
+      parameters:
+      - in: body 
+        name: body
+        description: It adds a new post to the post
+        required: true
+        schema:
+          $ref: '#/definitions/Post'
+      responses:
+        200:
+          description: An object with post details
+          schema:
+            $ref: '#/definitions/Post'
+  /post/remove/{postId}:
+    delete:
+      tags:
+        - Post
+      summary: Remove a post
+      produces:
+      - application/json
+      parameters:
+      - name: postId
+        in: path
+        required: true
+        description: The ID of the post to remove
+        type: string
+      responses:
+        200:
+          description: An object with post details
+          schema:
+            $ref: '#/definitions/Post'
+  /post/listByUser/{userId}:
+    get:
+      tags:
+        - Post
+      summary: Find all posts of a specified user
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        description: The ID of the user
+        type: string
+      responses:
+        200:
+          description: An array with all posts of the user
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Post'
+definitions:
+  Post:
+    type: object
+    properties:
+      images:
+        type: array
+        items:
+          type: object
+          description: Array of IDs of the users who liked the post
+          properties:
+            index:
+              type: number
+            link:
+              type: string
+      user:
+        type: string
+        description: ID of user who write the post
+      comments:
+        type: array
+        items:
+          type: string
+          description: ID of the post's comment
+      caption:
+        type: string
+        description: Caption text of the post
+      location:
+        type: string
+        description: Location of the post
+      usersWhoLiked:
+        type: array
+        items:
+          type: string
+          description: Array of IDs of the users who liked the post
+    required:
+      - images
+      - user
+      - caption
+tags:
+  - name: Post

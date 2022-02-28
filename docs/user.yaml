@@ -1,0 +1,131 @@
+paths:
+  /user/{userId}:
+    get:
+      tags:
+        - User
+      summary: Find user by ID
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        description: The id of the user to retrieve
+        type: string
+      responses:
+        200:
+          description: An object with user details
+          schema:
+            $ref: '#/definitions/User'
+  /user/list:
+    get:
+      tags:
+        - User
+      summary: List of all users
+      produces:
+      - application/json
+      responses:
+        200:
+          description: An object with user details
+          schema:
+            $ref: '#/definitions/User'
+  /user/create:
+    post:
+      tags:
+        - User
+      summary: Add a new customised user
+      produces:
+      - application/json
+      parameters:
+      - in: body 
+        name: body
+        description: It creates a fully personnalisable account
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+  /user/register:
+    post:
+      tags:
+        - User
+      summary: creates a new user
+      produces:
+      - application/json
+      parameters:
+      - in: body 
+        name: body
+        description: It enables a user to create an account
+        required: true
+        schema:
+          required:
+            - phoneOrEmail
+            - fullName
+            - username
+            - password
+          type: object
+          properties:
+            phoneOrEmail:
+              type: string
+            fullName:
+              type: string
+            username:
+              type: string
+            password:
+              type: string
+      responses:
+        201:
+          description: An object with user details
+          schema:
+            $ref: '#/definitions/User' 
+  /user/update/{userId}:
+    put:
+      tags:
+        - User
+      summary: Update an existing account
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        description: The ID of the user to update
+        type: string
+      - in: body 
+        name: body
+        description: It creates a fully personnalisable account
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+definitions:
+  User:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+      fullName:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+      bio:
+        type: string
+      link:
+        type: string
+      isPrivate:
+        type: boolean
+      isVerified:
+        type: boolean
+      profilePicUrl:
+        type: string
+      followers:
+        type: array
+        items:
+          type: string
+      following:
+        type: array
+        items:
+          type: string
+tags:
+  - name: User
