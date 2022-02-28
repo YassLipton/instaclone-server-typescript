@@ -7,6 +7,6 @@ You can use the following link to test web application:
 
 Server documentation:
 
-[http://192.168.1.32:5000/docs/](http://192.168.1.32:5000/docs/)
+[https://instaclone-server-ts.herokuapp.com/docs/](https://instaclone-server-ts.herokuapp.com/docs/)
 
 NOTE: The project is at its beginning, so you could meet some missing features.
