@@ -4,7 +4,7 @@ Here is the RESTful API of the Instagram clone.
 
 The documentation for this API is available [here](https://instaclone-server-ts.herokuapp.com/docs/).
 
-## stack
+## Stack
 
 - Node
 - Express
