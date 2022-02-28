@@ -1,12 +1,18 @@
-# Instaclone
-Here is a clone of the Instagram website developped using MERN stack and MVC pattern.
+# Instaclone server
 
-You can use the following link to test web application:
+Here is the RESTful API of the Instagram clone.
 
-[https://instaclone.yassbk.com/](https://instaclone.yassbk.com/)
+The documentation for this API is available [here](https://instaclone-server-ts.herokuapp.com/docs/).
 
-Server documentation:
+## stack
 
-[https://instaclone-server-ts.herokuapp.com/docs/](https://instaclone-server-ts.herokuapp.com/docs/)
+- Node
+- Express
+- TypeScript
+- MongoDB
+- JWT
 
-NOTE: The project is at its beginning, so you could meet some missing features.
+## Related projects
+
+- [instaclone-app](https://github.com/YassLipton/instaclone-app-typescript), the app version of my Instagram clone developped using React Native and TypeScript.
+- [instaclone-web](https://github.com/YassLipton/instaclone-client-typescript), the web version of my Instagram clone developped using React and TypeScript.
