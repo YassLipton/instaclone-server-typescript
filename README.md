@@ -10,6 +10,7 @@ The documentation for this API is available [here](https://instaclone-server-ts.
 - Express
 - TypeScript
 - MongoDB
+- AWS (S3)
 - JWT
 
 ## Related projects
